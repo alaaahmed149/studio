@@ -35,8 +35,8 @@ export default function LoginPage() {
     login('user1'); // Logs in as the first mock user.
 
     toast({
-        title: "Login Successful!",
-        description: "Welcome back!",
+        title: "تم تسجيل الدخول بنجاح!",
+        description: "مرحباً بعودتك!",
     });
     
     const redirectUrl = searchParams.get('redirect') || '/profile';
@@ -48,13 +48,13 @@ export default function LoginPage() {
     <div className="flex items-center justify-center py-12">
       <Card className="w-full max-w-md shadow-xl">
         <CardHeader className="text-center">
-          <CardTitle className="text-3xl font-bold text-primary">Sign In</CardTitle>
-          <CardDescription>Enter your credentials to access your account.</CardDescription>
+          <CardTitle className="text-3xl font-bold text-primary">تسجيل الدخول</CardTitle>
+          <CardDescription>أدخل بيانات الاعتماد الخاصة بك للوصول إلى حسابك.</CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-right block w-full">البريد الإلكتروني</Label>
               <Input 
                 id="email" 
                 type="email" 
@@ -63,10 +63,11 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={isLoading}
+                dir="ltr" 
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-right block w-full">كلمة المرور</Label>
               <Input 
                 id="password" 
                 type="password" 
@@ -75,17 +76,18 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 disabled={isLoading}
+                dir="ltr"
               />
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-4">
             <Button type="submit" className="w-full btn-primary" disabled={isLoading}>
-              {isLoading ? 'Signing In...' : 'Sign In'}
+              {isLoading ? 'جارٍ تسجيل الدخول...' : 'تسجيل الدخول'}
             </Button>
             <p className="text-sm text-muted-foreground">
-              Don't have an account?{' '}
+              ليس لديك حساب؟{' '}
               <Link href="/signup" className="font-semibold text-primary hover:underline">
-                Sign Up
+                إنشاء حساب
               </Link>
             </p>
           </CardFooter>
@@ -94,3 +96,4 @@ export default function LoginPage() {
     </div>
   );
 }
+

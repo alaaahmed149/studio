@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { useAuth } from '@/contexts/AuthContext';
 import type { User } from '@/types';
-import { LogOutIcon, UserCircle2Icon, PlusCircleIcon } from 'lucide-react'; // UserCircle2Icon is a common profile icon
+import { LogOutIcon, UserCircle2Icon, PlusCircleIcon } from 'lucide-react'; 
 import { useRouter } from 'next/navigation';
 
 
@@ -28,7 +28,7 @@ const UserNav = ({ user }: UserNavProps) => {
 
   const handleLogout = () => {
     logout();
-    router.push('/'); // Redirect to home page after logout
+    router.push('/'); 
   };
 
   const getInitials = (name: string) => {
@@ -49,7 +49,7 @@ const UserNav = ({ user }: UserNavProps) => {
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align="end" forceMount>
+      <DropdownMenuContent className="w-56 text-right" align="end" forceMount> {/* text-right for RTL */}
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">{user.name}</p>
@@ -61,22 +61,22 @@ const UserNav = ({ user }: UserNavProps) => {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
-            <Link href="/profile" className="flex items-center gap-2 cursor-pointer">
+            <Link href="/profile" className="flex items-center justify-end gap-2 cursor-pointer"> {/* justify-end and icon order */}
+              الملف الشخصي
               <UserCircle2Icon className="h-4 w-4" />
-              Profile
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link href="/post-cat" className="flex items-center gap-2 cursor-pointer">
+            <Link href="/post-cat" className="flex items-center justify-end gap-2 cursor-pointer"> {/* justify-end and icon order */}
+                عرض قط
                 <PlusCircleIcon className="h-4 w-4" />
-                Post a Cat
             </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={handleLogout} className="flex items-center gap-2 cursor-pointer text-destructive focus:text-destructive focus:bg-destructive/10">
+        <DropdownMenuItem onClick={handleLogout} className="flex items-center justify-end gap-2 cursor-pointer text-destructive focus:text-destructive focus:bg-destructive/10"> {/* justify-end and icon order */}
+          تسجيل الخروج
           <LogOutIcon className="h-4 w-4" />
-          Log out
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
@@ -84,3 +84,4 @@ const UserNav = ({ user }: UserNavProps) => {
 };
 
 export default UserNav;
+

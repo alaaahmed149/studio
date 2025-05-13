@@ -37,7 +37,7 @@ export default function ProfilePage() {
   return (
     <div className="container mx-auto py-8">
       <Card className="mb-8 shadow-lg">
-        <CardHeader className="flex flex-col items-center text-center sm:flex-row sm:text-left sm:items-start gap-6 p-6">
+        <CardHeader className="flex flex-col items-center text-center sm:flex-row sm:text-right sm:items-start gap-6 p-6">
           <Avatar className="h-24 w-24 border-4 border-primary shadow-md">
             <AvatarImage src={user.avatarUrl} alt={user.name} data-ai-hint="user avatar" />
             <AvatarFallback className="text-3xl bg-muted text-muted-foreground">
@@ -48,7 +48,7 @@ export default function ProfilePage() {
             <CardTitle className="text-3xl font-bold text-primary mb-1">{user.name}</CardTitle>
             <CardDescription className="text-lg text-muted-foreground">{user.email}</CardDescription>
             <Button variant="outline" size="sm" className="mt-3">
-              <Edit3Icon className="h-4 w-4 mr-2" /> Edit Profile
+              تعديل الملف الشخصي <Edit3Icon className="h-4 w-4 ms-2" />
             </Button>
           </div>
         </CardHeader>
@@ -56,35 +56,35 @@ export default function ProfilePage() {
 
       <Tabs defaultValue="my-cats" className="w-full">
         <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-6">
-          <TabsTrigger value="my-info">My Info</TabsTrigger>
-          <TabsTrigger value="my-cats">My Posted Cats</TabsTrigger>
-          <TabsTrigger value="sent-requests">Sent Requests</TabsTrigger>
-          <TabsTrigger value="received-requests">Received Requests</TabsTrigger>
+          <TabsTrigger value="my-info">معلوماتي</TabsTrigger>
+          <TabsTrigger value="my-cats">قططي المعروضة</TabsTrigger>
+          <TabsTrigger value="sent-requests">الطلبات المرسلة</TabsTrigger>
+          <TabsTrigger value="received-requests">الطلبات المستلمة</TabsTrigger>
         </TabsList>
         
         <TabsContent value="my-info">
           <Card>
             <CardHeader>
-              <CardTitle>My Information</CardTitle>
-              <CardDescription>View and edit your personal details.</CardDescription>
+              <CardTitle>معلوماتي الشخصية</CardTitle>
+              <CardDescription>عرض وتعديل تفاصيلك الشخصية.</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <p><strong>Name:</strong> {user.name}</p>
-              <p><strong>Email:</strong> {user.email}</p>
+            <CardContent className="space-y-4 text-right">
+              <p><strong>الاسم:</strong> {user.name}</p>
+              <p><strong>البريد الإلكتروني:</strong> {user.email}</p>
               {/* Placeholder for edit form */}
-              <Button variant="outline"><Edit3Icon className="h-4 w-4 mr-2" />Edit Information (Placeholder)</Button>
+              <Button variant="outline">تعديل المعلومات (مثال) <Edit3Icon className="h-4 w-4 ms-2" /></Button>
             </CardContent>
           </Card>
         </TabsContent>
 
         <TabsContent value="my-cats">
           <Card>
-            <CardHeader>
-              <CardTitle>My Posted Cats</CardTitle>
-              <CardDescription>Manage cats you've listed for adoption.</CardDescription>
+            <CardHeader className="text-right">
+              <CardTitle>قططي المعروضة للتبني</CardTitle>
+              <CardDescription>إدارة القطط التي عرضتها للتبني.</CardDescription>
             </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">You haven't posted any cats yet.</p>
+            <CardContent className="text-right">
+              <p className="text-muted-foreground">لم تقم بعرض أي قطط بعد.</p>
               {/* List user's cats here */}
             </CardContent>
           </Card>
@@ -92,12 +92,12 @@ export default function ProfilePage() {
 
         <TabsContent value="sent-requests">
           <Card>
-            <CardHeader>
-              <CardTitle>Adoption Requests Sent</CardTitle>
-              <CardDescription>Track the status of your adoption applications.</CardDescription>
+            <CardHeader className="text-right">
+              <CardTitle>طلبات التبني المرسلة</CardTitle>
+              <CardDescription>تتبع حالة طلبات التبني الخاصة بك.</CardDescription>
             </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">You haven't sent any adoption requests yet.</p>
+            <CardContent className="text-right">
+              <p className="text-muted-foreground">لم تقم بإرسال أي طلبات تبني بعد.</p>
               {/* List sent requests here */}
             </CardContent>
           </Card>
@@ -105,12 +105,12 @@ export default function ProfilePage() {
 
         <TabsContent value="received-requests">
           <Card>
-            <CardHeader>
-              <CardTitle>Adoption Requests Received</CardTitle>
-              <CardDescription>Manage adoption requests for your cats.</CardDescription>
+            <CardHeader className="text-right">
+              <CardTitle>طلبات التبني المستلمة</CardTitle>
+              <CardDescription>إدارة طلبات التبني لقططك.</CardDescription>
             </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">No adoption requests received for your cats.</p>
+            <CardContent className="text-right">
+              <p className="text-muted-foreground">لم يتم استلام أي طلبات تبني لقططك.</p>
               {/* List received requests here with Accept/Reject options */}
             </CardContent>
           </Card>
@@ -119,3 +119,4 @@ export default function ProfilePage() {
     </div>
   );
 }
+

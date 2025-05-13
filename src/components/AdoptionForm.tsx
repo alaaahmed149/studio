@@ -26,9 +26,9 @@ interface AdoptionFormProps {
 }
 
 const predefinedQuestions = [
-  "Why do you want to adopt this cat?",
-  "Describe your home environment (e.g., house/apartment, other pets, children):",
-  "What is your experience with cats?"
+  "لماذا تريد تبني هذا القط؟",
+  "صف بيئة منزلك (مثال: منزل/شقة، حيوانات أليفة أخرى، أطفال):",
+  "ما هي خبرتك مع القطط؟"
 ];
 
 export function AdoptionForm({ cat, children }: AdoptionFormProps) {
@@ -54,7 +54,7 @@ export function AdoptionForm({ cat, children }: AdoptionFormProps) {
     setIsLoading(true);
 
     const formData: AdoptionRequestFormData = {
-      message: predefinedQuestions.map((q, i) => `${q}\nAnswer: ${answers[i] || 'Not answered'}`).join('\n\n'),
+      message: predefinedQuestions.map((q, i) => `${q}\nالإجابة: ${answers[i] || 'لم تتم الإجابة'}`).join('\n\n'),
     };
 
     try {
@@ -66,8 +66,8 @@ export function AdoptionForm({ cat, children }: AdoptionFormProps) {
       await new Promise(resolve => setTimeout(resolve, 1000));
 
       toast({
-        title: "Request Sent!",
-        description: `Your adoption request for ${cat.name} has been submitted.`,
+        title: "تم إرسال الطلب!",
+        description: `تم إرسال طلب التبني الخاص بك لـ ${cat.name}.`,
         variant: "default",
       });
       setIsOpen(false); // Close dialog on success
@@ -75,8 +75,8 @@ export function AdoptionForm({ cat, children }: AdoptionFormProps) {
     } catch (error) {
       console.error("Failed to submit adoption request:", error);
       toast({
-        title: "Error",
-        description: "Could not submit your adoption request. Please try again.",
+        title: "خطأ",
+        description: "تعذر إرسال طلب التبني الخاص بك. يرجى المحاولة مرة أخرى.",
         variant: "destructive",
       });
     } finally {
@@ -100,18 +100,18 @@ export function AdoptionForm({ cat, children }: AdoptionFormProps) {
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[525px] bg-card shadow-xl rounded-lg">
+      <DialogContent className="sm:max-w-[525px] bg-card shadow-xl rounded-lg text-right">
         <DialogHeader>
-          <DialogTitle className="text-2xl text-primary">Adopt {cat.name}</DialogTitle>
+          <DialogTitle className="text-2xl text-primary">تبني {cat.name}</DialogTitle>
           <DialogDescription>
-            Please answer a few questions to help {cat.name}'s owner learn more about you.
+            يرجى الإجابة على بعض الأسئلة لمساعدة مالك {cat.name} على معرفة المزيد عنك.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit}>
           <div className="grid gap-6 py-4">
             {predefinedQuestions.map((question, index) => (
               <div className="grid grid-cols-1 items-center gap-2" key={index}>
-                <Label htmlFor={`question-${index}`} className="text-left font-semibold">
+                <Label htmlFor={`question-${index}`} className="text-right font-semibold">
                   {question}
                 </Label>
                 <Textarea
@@ -126,11 +126,11 @@ export function AdoptionForm({ cat, children }: AdoptionFormProps) {
             ))}
           </div>
           <DialogFooter>
-            <Button type="button" variant="outline" onClick={() => setIsOpen(false)} disabled={isLoading}>
-              Cancel
-            </Button>
             <Button type="submit" className="btn-primary" disabled={isLoading}>
-              {isLoading ? 'Submitting...' : 'Submit Request'}
+              {isLoading ? 'جارٍ الإرسال...' : 'إرسال الطلب'}
+            </Button>
+            <Button type="button" variant="outline" onClick={() => setIsOpen(false)} disabled={isLoading}>
+              إلغاء
             </Button>
           </DialogFooter>
         </form>
@@ -138,3 +138,4 @@ export function AdoptionForm({ cat, children }: AdoptionFormProps) {
     </Dialog>
   );
 }
+

@@ -9,8 +9,8 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'PurrfectMatch - Find Your Feline Friend',
-  description: 'A platform for adopting and rehoming cats.',
+  title: 'مواءمة مثالية - اعثر على صديقك القط',
+  description: 'منصة لتبني وإعادة توطين القطط.',
 };
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="ar" dir="rtl" className={inter.variable}>
       <body className="font-sans antialiased flex flex-col min-h-screen">
         <AuthProvider>
           <Header />
@@ -33,3 +33,4 @@ export default function RootLayout({
     </html>
   );
 }
+

@@ -17,10 +17,11 @@ const Label = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <LabelPrimitive.Root
     ref={ref}
-    className={cn(labelVariants(), className)}
+    className={cn(labelVariants(), "text-right", className)} // Added text-right for RTL default
     {...props}
   />
 ))
 Label.displayName = LabelPrimitive.Root.displayName
 
 export { Label }
+

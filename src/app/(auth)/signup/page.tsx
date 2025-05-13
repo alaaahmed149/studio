@@ -31,8 +31,8 @@ export default function SignupPage() {
     login('user2'); 
 
     toast({
-        title: "Account Created!",
-        description: "Welcome to PurrfectMatch!",
+        title: "تم إنشاء الحساب!",
+        description: "مرحباً بك في مواءمة مثالية!",
     });
     
     router.push('/profile'); // Redirect to profile after signup
@@ -43,16 +43,16 @@ export default function SignupPage() {
     <div className="flex items-center justify-center py-12">
       <Card className="w-full max-w-md shadow-xl">
         <CardHeader className="text-center">
-          <CardTitle className="text-3xl font-bold text-primary">Create Account</CardTitle>
-          <CardDescription>Join PurrfectMatch to find or rehome a cat.</CardDescription>
+          <CardTitle className="text-3xl font-bold text-primary">إنشاء حساب</CardTitle>
+          <CardDescription>انضم إلى مواءمة مثالية للعثور على قط أو إعادة توطينه.</CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="name">Full Name</Label>
+              <Label htmlFor="name" className="text-right block w-full">الاسم الكامل</Label>
               <Input 
                 id="name" 
-                placeholder="Your Name" 
+                placeholder="اسمك" 
                 required 
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -60,7 +60,7 @@ export default function SignupPage() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-right block w-full">البريد الإلكتروني</Label>
               <Input 
                 id="email" 
                 type="email" 
@@ -69,30 +69,32 @@ export default function SignupPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={isLoading}
+                dir="ltr"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-right block w-full">كلمة المرور</Label>
               <Input 
                 id="password" 
                 type="password" 
-                placeholder="Choose a strong password" 
+                placeholder="اختر كلمة مرور قوية" 
                 required 
                 minLength={8}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 disabled={isLoading}
+                dir="ltr"
               />
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-4">
             <Button type="submit" className="w-full btn-primary" disabled={isLoading}>
-              {isLoading ? 'Creating Account...' : 'Sign Up'}
+              {isLoading ? 'جارٍ إنشاء الحساب...' : 'إنشاء حساب'}
             </Button>
             <p className="text-sm text-muted-foreground">
-              Already have an account?{' '}
+              هل لديك حساب بالفعل؟{' '}
               <Link href="/login" className="font-semibold text-primary hover:underline">
-                Sign In
+                تسجيل الدخول
               </Link>
             </p>
           </CardFooter>
@@ -101,3 +103,4 @@ export default function SignupPage() {
     </div>
   );
 }
+

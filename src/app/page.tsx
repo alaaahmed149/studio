@@ -9,7 +9,7 @@ export default function HomePage() {
       <div className="mb-8">
         <Image 
           src="https://picsum.photos/seed/happycat/400/300" 
-          alt="Happy adopted cat" 
+          alt="قط سعيد تم تبنيه" 
           width={400} 
           height={300}
           className="rounded-lg shadow-xl"
@@ -19,40 +19,41 @@ export default function HomePage() {
       
       <h1 className="text-5xl font-extrabold tracking-tight text-primary mb-6 flex items-center gap-3">
         <PawPrintIcon className="h-12 w-12" />
-        Welcome to PurrfectMatch!
+        مرحباً بك في مواءمة مثالية!
         <PawPrintIcon className="h-12 w-12" />
       </h1>
       
       <p className="text-xl text-foreground/80 max-w-2xl mb-10 leading-relaxed">
-        Discover loving cats eagerly awaiting their forever homes. At PurrfectMatch, we connect compassionate individuals like you with adorable felines in need. Start your journey to find your new best friend today!
+        اكتشف قططًا محبة تنتظر بفارغ الصبر منازلها الدائمة. في مواءمة مثالية، نربط الأفراد المتعاطفين مثلك بالقطط الرائعة المحتاجة. ابدأ رحلتك للعثور على صديقك المفضل الجديد اليوم!
       </p>
       
-      <div className="space-x-4">
+      <div className="flex flex-col sm:flex-row items-center gap-4">
         <Button size="lg" className="btn-primary text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-shadow" asChild>
-          <Link href="/browse-cats">Find a Friend</Link>
+          <Link href="/browse-cats">ابحث عن صديق</Link>
         </Button>
         <Button variant="outline" size="lg" className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-shadow" asChild>
-          <Link href="/post-cat">Rehome a Cat</Link>
+          <Link href="/post-cat">إعادة توطين قط</Link>
         </Button>
       </div>
 
       <section className="mt-20 w-full max-w-4xl">
-        <h2 className="text-3xl font-bold text-foreground mb-8">How It Works</h2>
-        <div className="grid md:grid-cols-3 gap-8 text-left">
+        <h2 className="text-3xl font-bold text-foreground mb-8">كيف يعمل</h2>
+        <div className="grid md:grid-cols-3 gap-8 text-right">
           <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <h3 className="text-xl font-semibold text-primary mb-2">1. Browse Cats</h3>
-            <p className="text-foreground/70">Explore profiles of cats available for adoption. Filter by age, breed, and location to find your purrfect match.</p>
+            <h3 className="text-xl font-semibold text-primary mb-2">١. تصفح القطط</h3>
+            <p className="text-foreground/70">استكشف ملفات تعريف القطط المتاحة للتبني. قم بالتصفية حسب العمر والسلالة والموقع للعثور على تطابقك المثالي.</p>
           </div>
           <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <h3 className="text-xl font-semibold text-primary mb-2">2. Connect & Adopt</h3>
-            <p className="text-foreground/70">Found a cat you love? Submit an adoption request. Owners will review and connect with you.</p>
+            <h3 className="text-xl font-semibold text-primary mb-2">٢. تواصل وتبنى</h3>
+            <p className="text-foreground/70">هل وجدت قطًا تحبه؟ قدم طلب تبني. سيقوم المالكون بمراجعته والتواصل معك.</p>
           </div>
           <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <h3 className="text-xl font-semibold text-primary mb-2">3. Rehome with Care</h3>
-            <p className="text-foreground/70">Need to find a new home for your cat? Create a profile and connect with loving adopters safely.</p>
+            <h3 className="text-xl font-semibold text-primary mb-2">٣. إعادة التوطين بعناية</h3>
+            <p className="text-foreground/70">هل تحتاج إلى إيجاد منزل جديد لقطتك؟ أنشئ ملفًا شخصيًا وتواصل مع المتبنين المحبين بأمان.</p>
           </div>
         </div>
       </section>
     </div>
   );
 }
+

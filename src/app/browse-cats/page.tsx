@@ -1,10 +1,10 @@
 
-'use client'; // This page needs to be a client component for filtering interactivity
+'use client'; 
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import CatCard from '@/components/CatCard';
 import CatFilters from '@/components/CatFilters';
-import { getCats, mockCats as staticMockCats } from '@/lib/data'; // Use static data for initial breeds
+import { getCats, mockCats as staticMockCats } from '@/lib/data'; 
 import type { Cat } from '@/types';
 import { Loader2Icon, FrownIcon } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -18,7 +18,6 @@ const BrowseCatsPage = () => {
   const [filters, setFilters] = useState<{ age?: string; breed?: string; gender?: string; location?: string }>({});
 
   const uniqueBreeds = useMemo(() => {
-    // Extract unique breeds from the initial static cat data for filter options
     return Array.from(new Set(staticMockCats.map(cat => cat.breed))).sort();
   }, []);
 
@@ -26,12 +25,11 @@ const BrowseCatsPage = () => {
     const fetchAndSetCats = async () => {
       setIsLoading(true);
       try {
-        const allCats = await getCats(); // Fetches all available/pending cats
+        const allCats = await getCats(); 
         setCats(allCats);
-        setFilteredCats(allCats); // Initially, all cats are shown
+        setFilteredCats(allCats); 
       } catch (error) {
         console.error("Failed to fetch cats:", error);
-        // Potentially set an error state here to show in UI
       } finally {
         setIsLoading(false);
       }
@@ -59,11 +57,11 @@ const BrowseCatsPage = () => {
 
   const handleFilterChange = useCallback((newFilters: { age?: string; breed?: string; gender?: string; location?: string }) => {
     setFilters(newFilters);
-  }, [setFilters]); // setFilters from useState is stable, so this function reference is stable
+  }, []); 
 
   return (
     <div className="container mx-auto py-8">
-      <h1 className="text-4xl font-bold text-primary mb-8 text-center">Find Your Purrfect Companion</h1>
+      <h1 className="text-4xl font-bold text-primary mb-8 text-center">اعثر على رفيقك المثالي</h1>
       
       <CatFilters onFilterChange={handleFilterChange} breeds={uniqueBreeds} />
 
@@ -72,7 +70,7 @@ const BrowseCatsPage = () => {
           {Array.from({ length: 6 }).map((_, index) => (
             <Card className="overflow-hidden shadow-lg flex flex-col h-full" key={index}>
               <Skeleton className="w-full h-56" />
-              <CardContent className="p-4 flex-grow">
+              <CardContent className="p-4 flex-grow text-right">
                 <Skeleton className="h-6 w-3/4 mb-2" />
                 <Skeleton className="h-4 w-1/2 mb-1" />
                 <Skeleton className="h-4 w-1/2 mb-1" />
@@ -94,8 +92,8 @@ const BrowseCatsPage = () => {
       ) : (
         <div className="text-center py-12">
           <FrownIcon className="h-24 w-24 text-muted-foreground mx-auto mb-4" />
-          <h2 className="text-2xl font-semibold text-foreground mb-2">No Cats Found</h2>
-          <p className="text-muted-foreground">Try adjusting your filters or check back later for new arrivals!</p>
+          <h2 className="text-2xl font-semibold text-foreground mb-2">لم يتم العثور على قطط</h2>
+          <p className="text-muted-foreground">حاول تعديل عوامل التصفية أو تحقق مرة أخرى لاحقًا للوافدين الجدد!</p>
         </div>
       )}
     </div>

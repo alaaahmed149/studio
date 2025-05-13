@@ -1,105 +1,108 @@
 import type { Cat, User, AdoptionRequest } from '@/types';
 
+// Translated user names
 export const mockUsers: User[] = [
-  { id: 'user1', name: 'Alice Wonderland', email: 'alice@example.com', avatarUrl: 'https://picsum.photos/seed/alice/100/100' },
-  { id: 'user2', name: 'Bob The Builder', email: 'bob@example.com', avatarUrl: 'https://picsum.photos/seed/bob/100/100' },
-  { id: 'user3', name: 'Charlie Brown', email: 'charlie@example.com', avatarUrl: 'https://picsum.photos/seed/charlie/100/100' },
+  { id: 'user1', name: 'أليس بلاد العجائب', email: 'alice@example.com', avatarUrl: 'https://picsum.photos/seed/alice/100/100' },
+  { id: 'user2', name: 'بوب البناء', email: 'bob@example.com', avatarUrl: 'https://picsum.photos/seed/bob/100/100' },
+  { id: 'user3', name: 'تشارلي براون', email: 'charlie@example.com', avatarUrl: 'https://picsum.photos/seed/charlie/100/100' },
 ];
 
+// Translated cat data (partial for brevity)
 export let mockCats: Cat[] = [
   {
     id: 'cat1',
-    name: 'Whiskers',
+    name: 'بسبوس', // Whiskers -> Basbous (common Arabic cat name)
     images: ['https://picsum.photos/seed/cat1_1/600/400', 'https://picsum.photos/seed/cat1_2/600/400'],
     age: 2,
-    breed: 'Siamese',
-    gender: 'Male',
-    story: 'Whiskers is a playful and affectionate cat looking for a loving home. He enjoys chasing laser pointers and napping in sunny spots.',
-    healthCondition: 'Excellent, vaccinated and neutered.',
-    behavior: 'Friendly, active, loves cuddles.',
-    location: 'New York, NY',
+    breed: 'سيامي', // Siamese
+    gender: 'Male', // Will be displayed as 'ذكر' by components
+    story: 'بسبوس قط لعوب وحنون يبحث عن منزل محب. يستمتع بمطاردة مؤشرات الليزر والقيلولة في الأماكن المشمسة.',
+    healthCondition: 'ممتازة، محصن ومعقم.',
+    behavior: 'ودود، نشيط، يحب الحضن.',
+    location: 'نيويورك، نيويورك',
     postedBy: 'user1',
     postedDate: new Date('2024-06-15T10:00:00Z').toISOString(),
-    adoptionStatus: 'available',
+    adoptionStatus: 'available', // Will be displayed as 'متاح'
   },
   {
     id: 'cat2',
-    name: 'Mittens',
+    name: 'مشمش', // Mittens -> Mishmish
     images: ['https://picsum.photos/seed/cat2_1/600/400', 'https://picsum.photos/seed/cat2_2/600/400'],
     age: 5,
-    breed: 'Persian',
+    breed: 'فارسي', // Persian
     gender: 'Female',
-    story: 'Mittens is a calm and gentle soul who loves quiet afternoons and soft blankets. She is a bit shy at first but warms up quickly.',
-    healthCondition: 'Good, requires regular grooming.',
-    behavior: 'Calm, shy, affectionate once comfortable.',
-    location: 'San Francisco, CA',
+    story: 'مشمش روح هادئة ولطيفة تحب afternoons الهادئة والبطانيات الناعمة. هي خجولة قليلاً في البداية ولكنها تتأقلم بسرعة.',
+    healthCondition: 'جيدة، تتطلب عناية منتظمة بالفرو.',
+    behavior: 'هادئة، خجولة، حنونة بمجرد أن تشعر بالراحة.',
+    location: 'سان فرانسيسكو، كاليفورنيا',
     postedBy: 'user2',
     postedDate: new Date('2024-07-01T14:30:00Z').toISOString(),
     adoptionStatus: 'available',
   },
   {
     id: 'cat3',
-    name: 'Shadow',
+    name: 'شادو', // Shadow
     images: ['https://picsum.photos/seed/cat3_1/600/400'],
     age: 1,
-    breed: 'Bombay',
+    breed: 'بومباي', // Bombay
     gender: 'Male',
-    story: 'Shadow is an energetic kitten full of curiosity. He loves exploring and playing with toys. He gets along well with other cats.',
-    healthCondition: 'Excellent, vaccinated.',
-    behavior: 'Energetic, curious, playful.',
-    location: 'Chicago, IL',
+    story: 'شادو قط صغير مليء بالطاقة والفضول. يحب استكشاف ولعب بالألعاب. يتوافق جيدًا مع القطط الأخرى.',
+    healthCondition: 'ممتازة، محصن.',
+    behavior: 'مليء بالطاقة، فضولي، لعوب.',
+    location: 'شيكاغو، إلينوي',
     postedBy: 'user1',
     postedDate: new Date('2024-07-10T09:00:00Z').toISOString(),
     adoptionStatus: 'pending',
   },
   {
     id: 'cat4',
-    name: 'Luna',
+    name: 'لونا', // Luna
     images: ['https://picsum.photos/seed/cat4_1/600/400', 'https://picsum.photos/seed/cat4_2/600/400', 'https://picsum.photos/seed/cat4_3/600/400'],
     age: 3,
-    breed: 'Maine Coon',
+    breed: 'ماين كون', // Maine Coon
     gender: 'Female',
-    story: 'Luna is a majestic and friendly cat with a beautiful fluffy coat. She enjoys being petted and is very social.',
-    healthCondition: 'Very good, spayed.',
-    behavior: 'Social, friendly, vocal.',
-    location: 'Austin, TX',
+    story: 'لونا قطة مهيبة وودودة ذات فرو جميل ورقيق. تستمتع بالمداعبة وهي اجتماعية للغاية.',
+    healthCondition: 'جيدة جداً، معقمة.',
+    behavior: 'اجتماعية، ودودة، كثيرة المواء.',
+    location: 'أوستن، تكساس',
     postedBy: 'user3',
     postedDate: new Date('2024-05-20T12:00:00Z').toISOString(),
     adoptionStatus: 'adopted',
   },
   {
     id: 'cat5',
-    name: 'Oliver',
+    name: 'أوليفر', // Oliver
     images: ['https://picsum.photos/seed/cat5_1/600/400'],
-    age: 0.5, // 6 months
-    breed: 'Tabby Mix',
+    age: 0.5, 
+    breed: 'مزيج تابى', // Tabby Mix
     gender: 'Male',
-    story: 'Oliver is a sweet and adventurous kitten. He was found as a stray and is now looking for his forever family.',
-    healthCondition: 'Good, dewormed and first vaccinations.',
-    behavior: 'Sweet, adventurous, loves to play.',
-    location: 'Boston, MA',
+    story: 'أوليفر قط صغير لطيف ومغامر. تم العثور عليه ضالًا ويبحث الآن عن عائلته الدائمة.',
+    healthCondition: 'جيدة، تم تطهيره من الديدان وأخذ التطعيمات الأولى.',
+    behavior: 'لطيف، مغامر، يحب اللعب.',
+    location: 'بوسطن، ماساتشوستس',
     postedBy: 'user2',
     postedDate: new Date('2024-07-20T16:00:00Z').toISOString(),
     adoptionStatus: 'available',
   }
 ];
 
+// Translated adoption requests (partial)
 export let mockAdoptionRequests: AdoptionRequest[] = [
   {
     id: 'req1',
-    catId: 'cat3', // Shadow
-    requesterId: 'user2', // Bob
-    ownerId: 'user1', // Alice
-    message: 'I have a big house and experience with Bombay cats. Shadow would be very happy here!',
+    catId: 'cat3', 
+    requesterId: 'user2', 
+    ownerId: 'user1', 
+    message: 'لدي منزل كبير وخبرة مع قطط بومباي. سيكون شادو سعيدًا جدًا هنا!',
     status: 'pending',
     requestDate: new Date('2024-07-12T10:00:00Z').toISOString(),
   },
   {
     id: 'req2',
-    catId: 'cat4', // Luna
-    requesterId: 'user1', // Alice
-    ownerId: 'user3', // Charlie
-    message: 'Luna is beautiful! I would love to give her a home.',
+    catId: 'cat4', 
+    requesterId: 'user1', 
+    ownerId: 'user3', 
+    message: 'لونا جميلة! أحب أن أمنحها منزلًا.',
     status: 'accepted',
     requestDate: new Date('2024-05-22T11:00:00Z').toISOString(),
   },
@@ -108,12 +111,13 @@ export let mockAdoptionRequests: AdoptionRequest[] = [
 // --- Data Access Functions (Simulated) ---
 
 export const getCats = async (filters?: { age?: number; breed?: string; gender?: string; location?: string }): Promise<Cat[]> => {
-  await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
+  await new Promise(resolve => setTimeout(resolve, 500)); 
   let filteredCats = mockCats;
   if (filters) {
     if (filters.age) {
       filteredCats = filteredCats.filter(cat => cat.age === filters.age);
     }
+    // For breed and location, ensure comparison is robust for Arabic characters if needed (usually fine)
     if (filters.breed) {
       filteredCats = filteredCats.filter(cat => cat.breed.toLowerCase().includes(filters.breed!.toLowerCase()));
     }
@@ -187,7 +191,6 @@ export const addAdoptionRequest = async (requestData: Omit<AdoptionRequest, 'id'
   };
   mockAdoptionRequests.push(newRequest);
 
-  // If this is for a cat that was previously 'available', mark it as 'pending'
   const cat = mockCats.find(c => c.id === requestData.catId);
   if (cat && cat.adoptionStatus === 'available') {
     cat.adoptionStatus = 'pending';
@@ -203,7 +206,6 @@ export const updateAdoptionRequestStatus = async (requestId: string, status: 'ac
     mockAdoptionRequests[requestIndex].status = status;
     const updatedRequest = mockAdoptionRequests[requestIndex];
 
-    // If accepted, update cat status to 'adopted' and reject other pending requests for the same cat
     if (status === 'accepted') {
       const cat = mockCats.find(c => c.id === updatedRequest.catId);
       if (cat) {
@@ -215,7 +217,6 @@ export const updateAdoptionRequestStatus = async (requestId: string, status: 'ac
         });
       }
     }
-    // If rejected, and no other 'accepted' or 'pending' requests exist for this cat, set cat status to 'available'
     else if (status === 'rejected') {
         const cat = mockCats.find(c => c.id === updatedRequest.catId);
         if (cat) {
@@ -231,3 +232,4 @@ export const updateAdoptionRequestStatus = async (requestId: string, status: 'ac
   }
   return undefined;
 };
+

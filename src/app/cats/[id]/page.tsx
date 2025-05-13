@@ -1,3 +1,4 @@
+import * as React from 'react';
 import Image from 'next/image';
 import { getCatById, getUserById } from '@/lib/data';
 import { Button } from '@/components/ui/button';

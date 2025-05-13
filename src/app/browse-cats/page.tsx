@@ -7,6 +7,8 @@ import { getCats, mockCats as staticMockCats } from '@/lib/data'; // Use static 
 import type { Cat } from '@/types';
 import { Loader2Icon, FrownIcon } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+
 
 const BrowseCatsPage = () => {
   const [cats, setCats] = useState<Cat[]>([]);

@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,12 +9,12 @@ export default function HomePage() {
     <div className="flex flex-col items-center justify-center text-center py-12">
       <div className="mb-8">
         <Image 
-          src="https://picsum.photos/seed/happycat/400/300" 
+          src="https://picsum.photos/seed/buffKittenPage/400/300" 
           alt="قط سعيد تم تبنيه" 
           width={400} 
           height={300}
           className="rounded-lg shadow-xl"
-          data-ai-hint="happy cat"
+          data-ai-hint="buff kitten"
         />
       </div>
       
@@ -56,4 +57,3 @@ export default function HomePage() {
     </div>
   );
 }
-

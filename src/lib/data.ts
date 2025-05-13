@@ -1,3 +1,4 @@
+
 import type { Cat, User, AdoptionRequest } from '@/types';
 
 // Translated user names
@@ -12,7 +13,7 @@ export let mockCats: Cat[] = [
   {
     id: 'cat1',
     name: 'بسبوس', // Whiskers -> Basbous (common Arabic cat name)
-    images: ['https://picsum.photos/seed/cat1_1/600/400', 'https://picsum.photos/seed/cat1_2/600/400'],
+    images: ['https://picsum.photos/seed/buffKitten_cat1_main/600/400', 'https://picsum.photos/seed/buffKitten_cat1_alt1/600/400'],
     age: 2,
     breed: 'سيامي', // Siamese
     gender: 'Male', // Will be displayed as 'ذكر' by components
@@ -27,7 +28,7 @@ export let mockCats: Cat[] = [
   {
     id: 'cat2',
     name: 'مشمش', // Mittens -> Mishmish
-    images: ['https://picsum.photos/seed/cat2_1/600/400', 'https://picsum.photos/seed/cat2_2/600/400'],
+    images: ['https://picsum.photos/seed/buffKitten_cat2_main/600/400', 'https://picsum.photos/seed/buffKitten_cat2_alt1/600/400'],
     age: 5,
     breed: 'فارسي', // Persian
     gender: 'Female',
@@ -42,7 +43,7 @@ export let mockCats: Cat[] = [
   {
     id: 'cat3',
     name: 'شادو', // Shadow
-    images: ['https://picsum.photos/seed/cat3_1/600/400'],
+    images: ['https://picsum.photos/seed/buffKitten_cat3_main/600/400'],
     age: 1,
     breed: 'بومباي', // Bombay
     gender: 'Male',
@@ -57,7 +58,7 @@ export let mockCats: Cat[] = [
   {
     id: 'cat4',
     name: 'لونا', // Luna
-    images: ['https://picsum.photos/seed/cat4_1/600/400', 'https://picsum.photos/seed/cat4_2/600/400', 'https://picsum.photos/seed/cat4_3/600/400'],
+    images: ['https://picsum.photos/seed/buffKitten_cat4_main/600/400', 'https://picsum.photos/seed/buffKitten_cat4_alt1/600/400', 'https://picsum.photos/seed/buffKitten_cat4_alt2/600/400'],
     age: 3,
     breed: 'ماين كون', // Maine Coon
     gender: 'Female',
@@ -72,7 +73,7 @@ export let mockCats: Cat[] = [
   {
     id: 'cat5',
     name: 'أوليفر', // Oliver
-    images: ['https://picsum.photos/seed/cat5_1/600/400'],
+    images: ['https://picsum.photos/seed/buffKitten_cat5_main/600/400'],
     age: 0.5, 
     breed: 'مزيج تابى', // Tabby Mix
     gender: 'Male',
@@ -148,6 +149,8 @@ export const addCat = async (catData: Omit<Cat, 'id' | 'postedDate' | 'adoptionS
     id: `cat${mockCats.length + 1}`,
     postedDate: new Date().toISOString(),
     adoptionStatus: 'available',
+     // Ensure new cats also get themed images if needed, or use a default
+    images: [`https://picsum.photos/seed/newBuffKitten_${mockCats.length + 1}/600/400`],
   };
   mockCats.push(newCat);
   return newCat;
@@ -232,4 +235,3 @@ export const updateAdoptionRequestStatus = async (requestId: string, status: 'ac
   }
   return undefined;
 };
-

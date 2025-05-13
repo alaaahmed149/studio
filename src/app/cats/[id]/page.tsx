@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { getCatById, getUserById } from '@/lib/data';
 import { Button } from '@/components/ui/button';
@@ -56,7 +56,7 @@ export default async function CatProfilePage({ params }: CatProfilePageProps) {
             height={500}
             className="w-full h-auto object-cover rounded-lg shadow-xl border-2 border-primary/50"
             priority 
-            data-ai-hint="cat image"
+            data-ai-hint="buff kitten"
           />
           {cat.images.length > 1 && (
             <div className="grid grid-cols-3 gap-2">
@@ -68,7 +68,7 @@ export default async function CatProfilePage({ params }: CatProfilePageProps) {
                   width={200}
                   height={150}
                   className="w-full h-32 object-cover rounded-md shadow-md hover:opacity-80 transition-opacity"
-                  data-ai-hint="cat image thumbnail"
+                  data-ai-hint="buff kitten"
                 />
               ))}
             </div>
@@ -156,4 +156,3 @@ const InfoItem = ({ icon, label, value }: InfoItemProps) => (
     <span className="text-accent mt-0.5">{React.cloneElement(icon as React.ReactElement, { className: "h-5 w-5" })}</span> {/* Icon after text */}
   </div>
 );
-

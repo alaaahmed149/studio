@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Cat } from '@/types';
@@ -48,7 +49,7 @@ const CatCard = ({ cat }: CatCardProps) => {
             width={400}
             height={250}
             className="w-full h-56 object-cover transition-transform duration-300 hover:scale-105"
-            data-ai-hint="cat image"
+            data-ai-hint="buff kitten"
           />
         </Link>
       </CardHeader>
@@ -92,4 +93,3 @@ const CatCard = ({ cat }: CatCardProps) => {
 };
 
 export default CatCard;
-

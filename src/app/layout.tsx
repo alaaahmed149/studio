@@ -22,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" className={cairo.variable}>
-      <body className="font-cairo antialiased flex flex-col min-h-screen">
+    <html lang="ar" dir="rtl">
+      <body className={`${cairo.variable} antialiased flex flex-col min-h-screen`}>
         <AuthProvider>
           <Header />
           <main className="flex-grow container mx-auto px-4 py-8">

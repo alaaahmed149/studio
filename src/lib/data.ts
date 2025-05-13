@@ -13,7 +13,7 @@ export let mockCats: Cat[] = [
   {
     id: 'cat1',
     name: 'بسبوس', // Whiskers -> Basbous (common Arabic cat name)
-    images: ['https://picsum.photos/seed/buffKitten_cat1_main/600/400', 'https://picsum.photos/seed/buffKitten_cat1_alt1/600/400'],
+    images: ['https://images.unsplash.com/photo-1543852786-1cf6624b9987?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2F0c3xlbnwwfHwwfHx8MA%3D%3D', 'https://www.toledoblade.com/image/2025/01/15/1140x_a10-7_cTC/CATSxx-OMAG-jpg.jpg'],
     age: 2,
     breed: 'سيامي', // Siamese
     gender: 'Male', // Will be displayed as 'ذكر' by components
@@ -28,7 +28,7 @@ export let mockCats: Cat[] = [
   {
     id: 'cat2',
     name: 'مشمش', // Mittens -> Mishmish
-    images: ['https://picsum.photos/seed/buffKitten_cat2_main/600/400', 'https://picsum.photos/seed/buffKitten_cat2_alt1/600/400'],
+    images: ['https://plus.unsplash.com/premium_photo-1667030474693-6d0632f97029?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2F0fGVufDB8fDB8fHww', 'https://images.freeimages.com/images/large-previews/089/charming-gray-cat-0410-5700057.jpg?fmt=webp&w=500'],
     age: 5,
     breed: 'فارسي', // Persian
     gender: 'Female',
@@ -43,7 +43,7 @@ export let mockCats: Cat[] = [
   {
     id: 'cat3',
     name: 'شادو', // Shadow
-    images: ['https://picsum.photos/seed/buffKitten_cat3_main/600/400'],
+    images: ['https://www.cats.org.uk/media/13136/220325case013.jpg?width=500&height=333.49609375'],
     age: 1,
     breed: 'بومباي', // Bombay
     gender: 'Male',
@@ -58,7 +58,7 @@ export let mockCats: Cat[] = [
   {
     id: 'cat4',
     name: 'لونا', // Luna
-    images: ['https://picsum.photos/seed/buffKitten_cat4_main/600/400', 'https://picsum.photos/seed/buffKitten_cat4_alt1/600/400', 'https://picsum.photos/seed/buffKitten_cat4_alt2/600/400'],
+    images: ['https://images.freeimages.com/images/large-previews/089/charming-gray-cat-0410-5700057.jpg?fmt=webp&w=500', 'https://t3.ftcdn.net/jpg/02/36/99/22/360_F_236992283_sNOxCVQeFLd5pdqaKGh8DRGMZy7P4XKm.jpg'],
     age: 3,
     breed: 'ماين كون', // Maine Coon
     gender: 'Female',
@@ -73,7 +73,7 @@ export let mockCats: Cat[] = [
   {
     id: 'cat5',
     name: 'أوليفر', // Oliver
-    images: ['https://picsum.photos/seed/buffKitten_cat5_main/600/400'],
+    images: ['https://media.4-paws.org/d/2/5/f/d25ff020556e4b5eae747c55576f3b50886c0b90/cut%20cat%20serhio%2002-1813x1811-720x719.jpg'],
     age: 0.5, 
     breed: 'مزيج تابى', // Tabby Mix
     gender: 'Male',

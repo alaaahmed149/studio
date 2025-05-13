@@ -9,7 +9,7 @@ export default function HomePage() {
     <div className="flex flex-col items-center justify-center text-center py-12">
       <div className="mb-8">
         <Image 
-          src="https://picsum.photos/seed/buffKittenPage/400/300" 
+          src="https://www.orangepet.in/cdn/shop/articles/selective-closeup-cute-kitten-floor_1_800x.jpg?v=1693461218" 
           alt="قط سعيد تم تبنيه" 
           width={400} 
           height={300}

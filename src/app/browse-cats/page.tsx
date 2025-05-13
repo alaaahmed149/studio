@@ -1,6 +1,7 @@
+
 'use client'; // This page needs to be a client component for filtering interactivity
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import CatCard from '@/components/CatCard';
 import CatFilters from '@/components/CatFilters';
 import { getCats, mockCats as staticMockCats } from '@/lib/data'; // Use static data for initial breeds
@@ -56,9 +57,9 @@ const BrowseCatsPage = () => {
   }, [filters, cats]);
 
 
-  const handleFilterChange = (newFilters: { age?: string; breed?: string; gender?: string; location?: string }) => {
+  const handleFilterChange = useCallback((newFilters: { age?: string; breed?: string; gender?: string; location?: string }) => {
     setFilters(newFilters);
-  };
+  }, [setFilters]); // setFilters from useState is stable, so this function reference is stable
 
   return (
     <div className="container mx-auto py-8">
@@ -102,3 +103,4 @@ const BrowseCatsPage = () => {
 };
 
 export default BrowseCatsPage;
+

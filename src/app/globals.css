@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Inter', sans-serif, Arial, Helvetica; /* Using Inter as a more modern sans-serif font */
+  font-family: var(--font-cairo), sans-serif, Arial, Helvetica; /* Using Cairo as the primary font */
 }
 
 @layer base {
@@ -129,4 +129,9 @@ body {
 
 .btn-accent {
   @apply bg-accent text-accent-foreground hover:bg-accent/90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+}
+
+/* Apply Cairo font to specific elements if body-wide application is not enough or needs overrides */
+h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, select, label, span, div {
+  font-family: var(--font-cairo), sans-serif;
 }

@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google'; // Changed from Geist to Inter for a more common, professional look
+import { Cairo } from 'next/font/google'; // Changed from Inter to Cairo
 import './globals.css';
 import { AuthProvider } from '@/contexts/AuthContext';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const cairo = Cairo({ 
+  subsets: ['arabic', 'latin'], 
+  variable: '--font-cairo' 
+});
 
 export const metadata: Metadata = {
   title: 'مواءمة مثالية - اعثر على صديقك القط',
@@ -19,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" className={inter.variable}>
-      <body className="font-sans antialiased flex flex-col min-h-screen">
+    <html lang="ar" dir="rtl" className={cairo.variable}>
+      <body className="font-cairo antialiased flex flex-col min-h-screen">
         <AuthProvider>
           <Header />
           <main className="flex-grow container mx-auto px-4 py-8">
@@ -33,4 +36,3 @@ export default function RootLayout({
     </html>
   );
 }
-

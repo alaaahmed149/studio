@@ -12,18 +12,20 @@ interface CatFiltersProps {
   breeds: string[]; // Pass unique breeds from data
 }
 
+const ANY_BREED_VALUE = "__ANY_BREED__";
+const ANY_GENDER_VALUE = "__ANY_GENDER__";
+
 const CatFilters = ({ onFilterChange, breeds }: CatFiltersProps) => {
   const [age, setAge] = useState('');
-  const [breed, setBreed] = useState('');
-  const [gender, setGender] = useState('');
+  const [breed, setBreed] = useState(''); // Empty string means placeholder ("Any Breed") will show
+  const [gender, setGender] = useState(''); // Empty string means placeholder ("Any Gender") will show
   const [location, setLocation] = useState('');
 
   useEffect(() => {
-    // Debounce filter changes or apply immediately
     const filters = {
       age: age || undefined,
-      breed: breed || undefined,
-      gender: gender || undefined,
+      breed: (breed === '' || breed === ANY_BREED_VALUE) ? undefined : breed,
+      gender: (gender === '' || gender === ANY_GENDER_VALUE) ? undefined : gender,
       location: location || undefined,
     };
     onFilterChange(filters);
@@ -31,12 +33,12 @@ const CatFilters = ({ onFilterChange, breeds }: CatFiltersProps) => {
 
   const clearFilters = () => {
     setAge('');
-    setBreed('');
-    setGender('');
+    setBreed(''); // Resets to show placeholder "Any Breed"
+    setGender(''); // Resets to show placeholder "Any Gender"
     setLocation('');
   };
 
-  const uniqueBreeds = Array.from(new Set(breeds)); // Ensure breeds are unique
+  const uniqueBreeds = Array.from(new Set(breeds));
 
   return (
     <Card className="mb-8 shadow-md">
@@ -58,10 +60,10 @@ const CatFilters = ({ onFilterChange, breeds }: CatFiltersProps) => {
           />
           <Select value={breed} onValueChange={setBreed}>
             <SelectTrigger className="text-base md:text-sm">
-              <SelectValue placeholder="Breed" />
+              <SelectValue placeholder="Any Breed" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Any Breed</SelectItem>
+              <SelectItem value={ANY_BREED_VALUE}>Any Breed</SelectItem>
               {uniqueBreeds.map((b) => (
                 <SelectItem key={b} value={b}>{b}</SelectItem>
               ))}
@@ -69,10 +71,10 @@ const CatFilters = ({ onFilterChange, breeds }: CatFiltersProps) => {
           </Select>
           <Select value={gender} onValueChange={setGender}>
             <SelectTrigger className="text-base md:text-sm">
-              <SelectValue placeholder="Gender" />
+              <SelectValue placeholder="Any Gender" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Any Gender</SelectItem>
+              <SelectItem value={ANY_GENDER_VALUE}>Any Gender</SelectItem>
               <SelectItem value="Male">Male</SelectItem>
               <SelectItem value="Female">Female</SelectItem>
               <SelectItem value="Unknown">Unknown</SelectItem>
